@@ -1,7 +1,22 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+import fileInclude from 'vite-file-include';
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  base: './', // 🔑 заставит Vite писать ./assets/... вместо /assets/...
+  plugins: [
+    react(),
+    fileInclude({
+      includePattern: '@@include',
+      loopPattern: '@@loop',
+      ifPattern: '@@if',
+      baseDir: 'src',
+      context: { siteName: 'Моя соцсеть' },
+    }),
+  ],
+
+  build: {
+    outDir: './dist',
+    emptyOutDir: true,
+  },
+});
