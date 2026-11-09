@@ -1,22 +1,22 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import fileInclude from 'vite-file-include';
+import pugPlugin from 'vite-plugin-pug';
 
 export default defineConfig({
-  base: './', // 🔑 заставит Vite писать ./assets/... вместо /assets/...
   plugins: [
     react(),
-    fileInclude({
-      includePattern: '@@include',
-      loopPattern: '@@loop',
-      ifPattern: '@@if',
-      baseDir: 'src',
-      context: { siteName: 'Моя соцсеть' },
-    }),
+    pugPlugin({
+      pretty: true
+    })
   ],
-
-  build: {
-    outDir: './dist',
-    emptyOutDir: true,
+  base: './',
+  server: {
+    port: 3000,
+    open: true
   },
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    sourcemap: true // ✅ карты исходников в прод-сборке
+  }
 });

@@ -1,0 +1,53 @@
+include ../includes/mixins
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge") 
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="description" content="Краткое описание документа")
+    meta(name="keywords" content="keywords-ключевые слова для поиска")
+    block link 
+    //-   link(rel="icon" type="image/icon" href="@@webRoot/img/icons/logo.jpg")
+    //-   link(rel="stylesheet" type="text/css" href="@@webRoot/css/main.css")
+    //- block style
+    block script
+      //- script(defer src="@@webRoot/js/app.min.js")
+      script(defer src=`/src/main.js`) 
+
+
+    block title
+    - var text
+    title #{text}
+
+  body
+    //- include ../modules/preloader
+    include ../includes/mixins
+    .wrapper
+      .page 
+        block header 
+          header._header
+            //- include ../layouts/header
+        block page-content
+          main._main-content
+            +b.main-content#wrapper
+              +e._content#content
+                block main-content 
+                footer._footer
+                  block footer 
+                    //- include footer 
+                    //- ._form-request.request-form
+                      block form-request
+                        //- include ../modules/form-request
+                        //- ._order-call.order-call-form
+                          block order-call
+                            //- include ../modules/form-order-call
+                            //- ._form-questions.questions-form
+                              ._body._tipe
+                              block form-question-sheet
+                                //- include ../modules/form-question-sheet
+                                //- nav._aside-menu
+                                  block burger-menu
+                                    //- include ../assets/sidebar-menu 
+                                    //- block cookies
+                                    //- include ../modules/cookies-accept 

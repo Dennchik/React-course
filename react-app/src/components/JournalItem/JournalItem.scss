@@ -1,0 +1,36 @@
+.journal-item {
+  // .journal-item__header
+  &__header {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+  }
+
+  // .journal-item__body
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  // .journal-item__date
+
+  &__date {
+    color: rgba(255, 255, 255, 0.4);
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+  }
+
+  // .journal-item__rexr
+
+  &__text {
+    color: rgba(255, 255, 255, 0.6);
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+  }
+}

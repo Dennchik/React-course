@@ -1,29 +1,61 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import { defineConfig, globalIgnores } from 'eslint/config'
+import globals from 'globals';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import react from 'eslint-plugin-react';
+import js from '@eslint/js';
+import ts from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
 
-export default defineConfig([
-  globalIgnores(['dist']),
+export default [
   {
-    files: ['**/*.{js,jsx}'],
-    extends: [
-      js.configs.recommended,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
-    ],
+    files: ['#src/**/*.{js,mjs,cjs,jsx,tsx}'],
+    ignores: ['node_modules/**'],
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+      parser: tsParser,
+      ecmaVersion: 'latest',
+      globals: {
+        ...globals.browser,
+        ...globals.node
+      },
       parserOptions: {
         ecmaVersion: 'latest',
-        ecmaFeatures: { jsx: true },
         sourceType: 'module',
-      },
+        ecmaFeatures: { jsx: true }
+      }
+    },
+    plugins: {
+      '@typescript-eslint': ts,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+      react
     },
     rules: {
+      ...js.configs.recommended.rules,
+      ...react.configs.recommended.rules,
+      ...react.configs['jsx-runtime'].rules,
+      ...reactHooks.configs.recommended.rules,
+      ...ts.configs.recommended.rules,
+
+      //* правила
+      semi: ['error', 'always'],
+      quotes: [
+        'warn',
+        'single',
+        { avoidEscape: true, allowTemplateLiterals: true }
+      ],
+      'comma-dangle': ['error', 'never'],
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'no-mixed-spaces-and-tabs': 'off',
+
+      //* react
+      'react/prop-types': 'off', // отключаем propTypes (будем использовать TS)
+      'react/react-in-jsx-scope': 'off', // React 17+ не требует import React
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      'react/jsx-no-target-blank': ['error', { enforceDynamicLinks: 'always' }]
     },
-  },
-])
+    settings: {
+      react: { version: 'detect' }
+    }
+  }
+];

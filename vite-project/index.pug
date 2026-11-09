@@ -1,0 +1,12 @@
+extends ./src/pug/layouts/app_layout
+append link
+  //- link(rel="stylesheet" type="text/css" href=`${webRoot}/css/index.css`)
+prepend script
+  //- script(defer src="@@webRoot/js/vendors/runtime.min.js")
+  //- script(defer src="@@webRoot/js/vendors/swiper-bundle.min.js") 
+  //- script(defer src="@@webRoot/js/vendors/anime-vendors.min.js") 
+block title
+  - var text='Home'
+
+block main-content 
+  section.main-content__section#home 

@@ -1,0 +1,21 @@
+.button {
+  cursor: pointer;
+  display: inline;
+  padding: 8px 30px;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.accent {
+  background: rgba(49, 46, 181, 1);
+  &:hover {
+    background: rgb(33, 32, 122);
+  }
+}
+button {
+  transition: background 0.4s;
+}

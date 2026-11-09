@@ -1,0 +1,104 @@
+.header
+	.header-blink
+	._container
+		._content
+			._column.el-logo
+				._logo-wrapper 
+					a(href="#home" aria-label="home" )._logo.anchor-link
+						+picture('@@webRoot/img/logo.jpg', 'image') 
+					._text(data-da="bp-6" data-da-position="0" data-da-resolution="960") 
+						span Управление коммерческой недвижимостью
+			._column 
+				._menu(data-da="bp-7" data-da-position="0" data-da-resolution="960") 
+					ul._menu-items
+						li._item
+							a(href="#about")._link-key.anchor-link.link_underline-lr 
+								span Компания 
+						li._item
+							._link-key.link_underline-lr
+								span управление
+								ul._sub-item 
+									li._sub-link
+										a(href="#prices").anchor-link.link_underline-lr 
+											span управление отношениями
+									li._sub-link
+										a(href="#management").anchor-link.link_underline-lr 
+											span эксплуатация и тех-обслуживание
+									li._sub-link
+										a(href="#brokerage").anchor-link.link_underline-lr 
+											span брокеридж
+									li._sub-link
+										a(href="#cleaning").anchor-link.link_underline-lr 
+											span пожарная безопасность
+									li._sub-link
+										a(href="#cleaning").anchor-link.link_underline-lr 
+											span клининг
+									li._sub-link
+										a(href="#prices").anchor-link.link_underline-lr 
+											span технический аудит
+									li._sub-link
+										a(href="#prices").anchor-link.link_underline-lr 
+											span аварийно-диспетчерская служба
+									li._sub-link
+										a(href="#prices").anchor-link.link_underline-lr 
+											span техническое обслуживание
+									li._sub-link
+										a(href="#prices").anchor-link.link_underline-lr 
+											span доверительное управление
+						li._item
+							._link-key.link_underline-lr
+								span консалтинг
+								ul._sub-item 
+									li._sub-link
+										a(href="#prices").anchor-link.link_underline-lr 
+											span управление недвижимостью
+									li._sub-link
+										a(href="#prices").anchor-link.link_underline-lr 
+											span продажа и аренда
+									li._sub-link
+										a(href="#prices").anchor-link.link_underline-lr 
+											span бухгалтерские и кадровые услуги
+									li._sub-link
+										a(href="#prices").anchor-link.link_underline-lr 
+											span юридическое сопровождение 
+						li._item
+							._link-key.link_underline-lr
+								span партнерство
+								ul._sub-item 
+									li._sub-link
+										a(href="#prices").anchor-link.link_underline-lr 
+											span собственникам недвижимости
+									li._sub-link
+										a(href="#client").anchor-link.link_underline-lr 
+											span инвесторам
+									li._sub-link
+										a(href="#client").anchor-link.link_underline-lr 
+											span арендаторам
+									li._sub-link
+										a(href="#client").anchor-link.link_underline-lr 
+											span управляющим 
+							ul._sub-item 
+								li._sub-link
+						li._item
+							a(href="#contacts")._link-key.anchor-link.link_underline-lr
+								span Контакты
+			._column
+				._phone 
+					._phone-item._log-in  
+						+iconfont('sign-out', '_icon')
+					._phone-item
+						a(href="tel:8 (800) 234-55-44") 
+							span 8&nbsp;(800)&nbsp;234&#8209;55&#8209;44
+					._phone-item
+						a(href="tel:8 (980) 510-41-96") 
+							span 8&nbsp;(980)&nbsp;510&#8209;41&#8209;96
+					._phone-item
+						em ежедневно с&nbsp;9.00&#8209;20.00
+
+
+				//- a.el-community__contact(href="mailto:awdes@yandex.ru?subject=🤝%20Информация%20о%20проекте.%20Давайте%20поговорим.")
+					+iconfont('contacts', '_icon')
+					.el-community__content
+						span.el-community__title Скажи привет! 
+				._burger-button
+					include ../assets/burger-button
